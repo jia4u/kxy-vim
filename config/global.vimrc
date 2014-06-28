@@ -20,4 +20,4 @@ map r :redo<cr>
 
 hi Pmenu ctermbg=32 ctermfg=150 cterm=bold
 hi PmenuSel ctermbg=24 ctermfg=220 cterm=bold
-
+hi Search ctermbg=22

@@ -22,6 +22,6 @@ if filereadable(csdb)
     nmap fg :cs f g <cword><cr>
     nmap fi :cs f i
 
-    nmap cw :botright vert
+    nmap cw :cw<cr>
 
 endif
