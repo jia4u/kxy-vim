@@ -1,7 +1,11 @@
 " tag list settings
 set nocst 
 set tags=$PWD/tags 
-let Tlist_Ctags_Cmd = '`which ctags`' 
+if filereadable('/usr/local/bin/ctags')
+    let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+else
+    let Tlist_Ctags_Cmd = '`which ctags`' 
+endif
 let Tlist_Show_One_File = 1 
 let Tlist_Use_Right_Window = 1
 
