@@ -4,7 +4,7 @@ if filereadable(csdb)
     if filereadable('/usr/local/bin/cscope')
         set csprg='/usr/local/bin/cscope'
     else
-        set csprg='`which cscope`'
+        set csprg='/usr/bin/cscope'
     endif
     set cscopequickfix=c-,d-,e-,f-,g-,i-,s-,t-
     set csto=1
