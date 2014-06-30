@@ -8,6 +8,7 @@ function make_dir()
     mkdir -p ~/.vim/plugin
     mkdir -p ~/.vim/doc
     mkdir -p ~/.vim/autoload
+    mkdir -p ~/.vim/color
 }
 
 function init()
@@ -116,6 +117,13 @@ function install_omnicppcomplete()
     cat ./config/omnicpp.ctags >> ~/.ctags
 }
 
+function install_colorpalette()
+{
+    cp -r ./vim_plugin/color.vim ~/.vim/syntax/palette.vim
+    cp -r ./config/palette ~/.vim/color/.palette
+    cat ./config/color_palette.vimrc >> ~/.vimrc
+}
+
 function menu()
 {
     echo "usage:"
@@ -143,6 +151,7 @@ case $action in
         install_pathogen
         install_syntastic
         install_omnicppcomplete
+        install_colorpalette
         echo done
         ;;
     *)

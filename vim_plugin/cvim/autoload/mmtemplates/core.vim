@@ -2997,7 +2997,7 @@ function! mmtemplates#core#CreateMaps ( library, localleader, ... )
 	"
 	" jump map
 	if do_jump_map
-		let jump_key = '<C-j>'   " TODO: configurable
+		let jump_key = '<Leader><C-j>'   " TODO: configurable
 		if ! empty ( maparg( jump_key ) )
 			if echo_warning
 				call s:ErrorMsg ( 'Mapping already in use: "'.jump_key.'"' )

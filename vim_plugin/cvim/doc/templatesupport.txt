@@ -1366,8 +1366,8 @@ This function is best used in maps such as this:
 
 	" ...
 
-	nnoremap <buffer> <C-j> i<C-R>=mmtemplates#core#JumpToTag ( regex )<CR>
-	inoremap <buffer> <C-j>  <C-R>=mmtemplates#core#JumpToTag ( regex )<CR>
+	nnoremap <buffer> <Leader><C-j> i<C-R>=mmtemplates#core#JumpToTag ( regex )<CR>
+	inoremap <buffer> <leader><C-j>  <C-R>=mmtemplates#core#JumpToTag ( regex )<CR>
 <
 This maps can be created automatically using |mmtemplates#core#CreateMaps()|.
 
