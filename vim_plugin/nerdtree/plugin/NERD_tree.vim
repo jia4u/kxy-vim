@@ -119,9 +119,9 @@ call s:initVariable("g:NERDTreeMapMenu", "m")
 call s:initVariable("g:NERDTreeMapHelp", "?")
 call s:initVariable("g:NERDTreeMapJumpFirstChild", "K")
 call s:initVariable("g:NERDTreeMapJumpLastChild", "J")
-call s:initVariable("g:NERDTreeMapJumpNextSibling", "<C-j>")
+"call s:initVariable("g:NERDTreeMapJumpNextSibling", "<C-j>")
 call s:initVariable("g:NERDTreeMapJumpParent", "p")
-call s:initVariable("g:NERDTreeMapJumpPrevSibling", "<C-k>")
+"call s:initVariable("g:NERDTreeMapJumpPrevSibling", "<C-k>")
 call s:initVariable("g:NERDTreeMapJumpRoot", "P")
 call s:initVariable("g:NERDTreeMapOpenExpl", "e")
 call s:initVariable("g:NERDTreeMapOpenInTab", "t")
@@ -163,7 +163,7 @@ let s:next_buffer_number = 1
 "init the command that users start the nerd tree with
 command! -n=? -complete=dir -bar NERDTree :call s:initNerdTree('<args>')
 command! -n=? -complete=dir -bar NERDTreeToggle :call s:toggle('<args>')
-command! -n=0 -bar NERDTreeClose :call s:closeTreeIfOpen()
+command! -n=0 -bar NERDTreeClose :call s:closeOrOpen()
 command! -n=1 -complete=customlist,s:completeBookmarks -bar NERDTreeFromBookmark call s:initNerdTree('<args>')
 command! -n=0 -bar NERDTreeMirror call s:initNerdTreeMirror()
 command! -n=0 -bar NERDTreeFind call s:findAndRevealPath()
@@ -2842,11 +2842,13 @@ function! s:closeTree()
     endif
 endfunction
 
-"FUNCTION: s:closeTreeIfOpen() {{{2
+"FUNCTION: s:closeOrOpen() {{{2
 "Closes the NERD tree window if it is open
-function! s:closeTreeIfOpen()
+function! s:closeOrOpen()
    if s:isTreeOpen()
       call s:closeTree()
+  else
+      call s:initNerdTree()
    endif
 endfunction
 "FUNCTION: s:closeTreeIfQuitOnOpen() {{{2
@@ -2928,8 +2930,8 @@ function! s:dumpHelp()
         let @h=@h."\" ". g:NERDTreeMapJumpParent .": go to parent\n"
         let @h=@h."\" ". g:NERDTreeMapJumpFirstChild  .": go to first child\n"
         let @h=@h."\" ". g:NERDTreeMapJumpLastChild   .": go to last child\n"
-        let @h=@h."\" ". g:NERDTreeMapJumpNextSibling .": go to next sibling\n"
-        let @h=@h."\" ". g:NERDTreeMapJumpPrevSibling .": go to prev sibling\n"
+"        let @h=@h."\" ". g:NERDTreeMapJumpNextSibling .": go to next sibling\n"
+"        let @h=@h."\" ". g:NERDTreeMapJumpPrevSibling .": go to prev sibling\n"
 
         let @h=@h."\"\n\" ----------------------------\n"
         let @h=@h."\" Filesystem mappings~\n"
@@ -3522,8 +3524,8 @@ function! s:bindMappings()
     exec "nnoremap <silent> <buffer> ". g:NERDTreeMapMenu ." :call <SID>showMenu()<cr>"
 
     exec "nnoremap <silent> <buffer> ". g:NERDTreeMapJumpParent ." :call <SID>jumpToParent()<cr>"
-    exec "nnoremap <silent> <buffer> ". g:NERDTreeMapJumpNextSibling ." :call <SID>jumpToSibling(1)<cr>"
-    exec "nnoremap <silent> <buffer> ". g:NERDTreeMapJumpPrevSibling ." :call <SID>jumpToSibling(0)<cr>"
+"    exec "nnoremap <silent> <buffer> ". g:NERDTreeMapJumpNextSibling ." :call <SID>jumpToSibling(1)<cr>"
+"    exec "nnoremap <silent> <buffer> ". g:NERDTreeMapJumpPrevSibling ." :call <SID>jumpToSibling(0)<cr>"
     exec "nnoremap <silent> <buffer> ". g:NERDTreeMapJumpFirstChild ." :call <SID>jumpToFirstChild()<cr>"
     exec "nnoremap <silent> <buffer> ". g:NERDTreeMapJumpLastChild ." :call <SID>jumpToLastChild()<cr>"
     exec "nnoremap <silent> <buffer> ". g:NERDTreeMapJumpRoot ." :call <SID>jumpToRoot()<cr>"
