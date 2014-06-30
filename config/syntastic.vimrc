@@ -9,8 +9,8 @@ let g:syntastic_cpp_checkers = ['gcc']
 let g:syntastic_python_errorformat = '%f:%l:%c: %trror: %m'
 let g:syntastic_python_checkers = ['python']
 
-map <c-c> :SyntasticCheck gcc<cr>
+map <c-c> :SyntasticCheck <cr>
 map er :Errors<cr>
 
-autocmd BufWritePost *.h,*.c,*.cpp,*.hpp,*.cc SyntasticCheck gcc
+autocmd BufWritePost *.h,*.c,*.cpp,*.hpp,*.cc SyntasticCheck
 
