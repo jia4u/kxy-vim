@@ -7,3 +7,5 @@ set smartindent
 set nowrap
 set backspace=start,indent,eol
 
+hi TooLongLine ctermbg=white
+match TooLongLine '\%>80v.*'
