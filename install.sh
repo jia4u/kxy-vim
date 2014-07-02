@@ -124,6 +124,11 @@ function install_colorpalette()
     cat ./config/color_palette.vimrc >> ~/.vimrc
 }
 
+function install_time()
+{
+    cat ./config/time.vimrc >> ~/.vimrc
+}
+
 function menu()
 {
     echo "usage:"
@@ -152,6 +157,7 @@ case $action in
         install_syntastic
         install_omnicppcomplete
         install_colorpalette
+        install_time
         echo done
         ;;
     *)

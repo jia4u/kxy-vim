@@ -8,4 +8,4 @@ set nowrap
 set backspace=start,indent,eol
 
 hi TooLongLine ctermbg=white ctermfg=red
-match TooLongLine '\%>80v.*'
+match TooLongLine '\%>81v.*'
